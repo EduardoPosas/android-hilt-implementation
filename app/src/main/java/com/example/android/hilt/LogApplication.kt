@@ -17,13 +17,14 @@
 package com.example.android.hilt
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
+/*
+* Triggers Hilt's code generation, including base class for the app that can use dependency injection
+* The application container is the parent container for the app
+* which means other containers can access the dependencies that it provides
+* and it is attached to the app's lifecycle
+* */
+@HiltAndroidApp
 class LogApplication : Application() {
-
-    lateinit var serviceLocator: ServiceLocator
-
-    override fun onCreate() {
-        super.onCreate()
-        serviceLocator = ServiceLocator(applicationContext)
-    }
 }
